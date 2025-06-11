@@ -1,35 +1,62 @@
 import { View, Text } from "react-native";
 import React from "react";
 
-
-type Props = {};
-
-const Moduleinfo = (props: Props) => {
-    const Module_Info={
-        name:"Object-Orientated-programming",
-        code:"OOP216D",
-        time:"11:00-12:00",
-        venue:"120",
-        status:'absent'
-    }
-  return (
-    <View className="w-[80%] h-[25%] border-2 border-white justify-between flex flex-row bg-ModuleInfoBG" >
-<View className="border-2 border-green-100   ">
-<Text>{Module_Info.name.length > 25 ?  Module_Info.name.substring(0,25) : Module_Info.name}<Text> "{Module_Info.code}" </Text></Text>
-<Text>{Module_Info.status}</Text>
-</View>
-<View className="border-2 border-green-100   ">
-<Text>{Module_Info.time}</Text>
-<Text>{Module_Info.venue}</Text>
-</View>
-<View>
-    
-</View>
-    </View>
-
-     
-  );
+type Props = {
+  data: {
+    name: string;
+    code: string;
+    time: string;
+    venue: string;
+    status: string;
+  };
 };
 
+const Moduleinfo = ({ data }: Props) => {
+  return (
+    <View
+      className={`h-[15%] justify-between p-2 rounded-md mb-3  flex flex-row ${
+        data.status === "absent"
+          ? "bg-ModuleInfoLate"
+          : data.status === "present"
+          ? "bg-ModuleInfoPresent"
+          : "bg-ModuleInfoBG"
+      }`}
+    >
+      <View className="flex justify-between">
+        <Text
+          style={{ fontFamily: "Poppins_400Regular", fontSize: 12 }}
+          className="text-white"
+        >
+          {data.name.length > 25 ? data.name.substring(0, 25) : data.name}
+          <Text style={{ fontFamily: "Poppins_600SemiBold", fontSize: 12 }}>
+            {" "}
+            "{data.code}"{" "}
+          </Text>
+        </Text>
+        <Text
+          className="text-white"
+          style={{ fontFamily: "Poppins_600SemiBold", fontSize: 15 }}
+        >
+          {data.status}
+        </Text>
+      </View>
+      <View className="flex justify-between">
+        <Text
+          className="text-white"
+          style={{ fontFamily: "Poppins_600SemiBold", fontSize: 12 }}
+        >
+          {data.time}
+        </Text>
+        <Text
+          className="text-white text-end"
+          style={{ fontFamily: "Poppins_600SemiBold", fontSize: 16 }}
+        >
+          {data.venue}
+        </Text>
+      </View>
+      <View></View>
+    </View>
+  );
+};
 
 export default Moduleinfo;

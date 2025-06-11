@@ -5,14 +5,16 @@ module.exports = {
   presets: [require("nativewind/preset")],
   theme: {
     extend: {
-      colors:{
-        AppBackGround:"#192020",
-        HomeScreenHeaderBG:"#133634",
-        ModuleInfoBG:"#686868"
+      colors: {
+        AppBackGround: "#061217",
+        HomeScreenHeaderBG: "#092029",
+        ModuleInfoBG: "#1b3738",
+        ModuleInfoLate: "#993434",
+        ModuleInfoPresent: "#10752f",
       },
-      padding:{
-        AppPadding:"-[15px]"
-      }
+      padding: {
+        AppPadding: "-[15px]",
+      },
     },
   },
   plugins: [],
